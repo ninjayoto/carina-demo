@@ -18,7 +18,7 @@ package com.qaprosoft.carina.demo;
 import com.qaprosoft.apitools.validation.JsonCompareKeywords;
 import com.qaprosoft.carina.core.foundation.AbstractTest;
 import com.qaprosoft.carina.core.foundation.api.http.HttpResponseStatusType;
-import com.qaprosoft.carina.core.foundation.report.qtest.QTestTestCase;
+import com.qaprosoft.carina.core.foundation.report.qtest.QTestCases;
 import com.qaprosoft.carina.core.foundation.report.testrail.TestRailCases;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.qaprosoft.carina.core.foundation.utils.tag.Priority;
@@ -40,9 +40,9 @@ public class APISampleTest extends AbstractTest {
     @MethodOwner(owner = "qpsdemo")
     @TestRailCases(testCasesId = "1")
     @TestRailCases(testCasesId = "10", platform = "API")
-    @QTestTestCase(id = "1")
-    @QTestTestCase(id = "100", platform = "Android")
-    @QTestTestCase(id = "200", platform = "API")
+    @QTestCases(id = "1000")
+    @QTestCases(id = "101", platform = "Android")
+    @QTestCases(id = "201", platform = "API")
     public void testCreateUser() throws Exception {
         setTestRailCase("4555,54545");
         PostUserMethod api = new PostUserMethod();
@@ -54,7 +54,7 @@ public class APISampleTest extends AbstractTest {
     @Test(description = "JIRA#DEMO-0002")
     @MethodOwner(owner = "qpsdemo")
     @TestRailCases(testCasesId = "2")
-    @QTestTestCase(id = "2")
+    @QTestCases(id = "2")
     public void testCreateUserMissingSomeFields() throws Exception {
         PostUserMethod api = new PostUserMethod();
         api.getProperties().remove("name");
@@ -68,8 +68,8 @@ public class APISampleTest extends AbstractTest {
     @MethodOwner(owner = "qpsdemo")
     @TestRailCases(testCasesId = "3")
     @TestRailCases(testCasesId = "4")
-    @QTestTestCase(id = "3")
-    @QTestTestCase(id = "4")
+    @QTestCases(id = "3")
+    @QTestCases(id = "4")
     public void testGetUsers() {
         GetUserMethods getUsersMethods = new GetUserMethods();
         getUsersMethods.expectResponseStatus(HttpResponseStatusType.OK_200);
@@ -83,9 +83,9 @@ public class APISampleTest extends AbstractTest {
     @TestRailCases(testCasesId = "5,9,65656")
     @TestRailCases(testCasesId = "6")
     @TestRailCases(testCasesId = "7")
-    @QTestTestCase(id = "5")
-    @QTestTestCase(id = "6")
-    @QTestTestCase(id = "7")
+    @QTestCases(id = "5")
+    @QTestCases(id = "6")
+    @QTestCases(id = "7")
     @TestPriority(Priority.P1)
     public void testDeleteUsers() {
         DeleteUserMethod deleteUserMethod = new DeleteUserMethod();
