@@ -15,19 +15,19 @@
  */
 package com.qaprosoft.carina.demo;
 
+import org.skyscreamer.jsonassert.JSONCompareMode;
+import org.testng.annotations.Test;
+
 import com.qaprosoft.apitools.validation.JsonCompareKeywords;
 import com.qaprosoft.carina.core.foundation.AbstractTest;
 import com.qaprosoft.carina.core.foundation.api.http.HttpResponseStatusType;
-import com.qaprosoft.carina.core.foundation.report.qtest.QTestTestCase;
-import com.qaprosoft.carina.core.foundation.report.testrail.TestRailCases;
+import com.qaprosoft.carina.core.foundation.report.qtest.QTestCases;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.qaprosoft.carina.core.foundation.utils.tag.Priority;
 import com.qaprosoft.carina.core.foundation.utils.tag.TestPriority;
 import com.qaprosoft.carina.demo.api.DeleteUserMethod;
 import com.qaprosoft.carina.demo.api.GetUserMethods;
 import com.qaprosoft.carina.demo.api.PostUserMethod;
-import org.skyscreamer.jsonassert.JSONCompareMode;
-import org.testng.annotations.Test;
 
 /**
  * This sample shows how create REST API tests.
@@ -38,9 +38,8 @@ public class APISampleTest extends AbstractTest {
 
     @Test(description = "JIRA#DEMO-0001")
     @MethodOwner(owner = "qpsdemo")
-    @QTestTestCase(id = "1")
+    @QTestCases(id = "1")
     public void testCreateUser() throws Exception {
-        setTestRailCase("4555,54545");
         PostUserMethod api = new PostUserMethod();
         api.expectResponseStatus(HttpResponseStatusType.CREATED_201);
         api.callAPI();
@@ -49,7 +48,7 @@ public class APISampleTest extends AbstractTest {
 
     @Test(description = "JIRA#DEMO-0002")
     @MethodOwner(owner = "qpsdemo")
-    @QTestTestCase(id = "2,5,7")
+    @QTestCases(id = "2,5,7")
     public void testCreateUserMissingSomeFields() throws Exception {
         PostUserMethod api = new PostUserMethod();
         api.getProperties().remove("name");
@@ -61,7 +60,7 @@ public class APISampleTest extends AbstractTest {
 
     @Test(description = "JIRA#DEMO-0003")
     @MethodOwner(owner = "qpsdemo")
-    @QTestTestCase(id = "10")
+    @QTestCases(id = "10")
     public void testGetUsers() {
         GetUserMethods getUsersMethods = new GetUserMethods();
         getUsersMethods.expectResponseStatus(HttpResponseStatusType.OK_200);
@@ -72,7 +71,7 @@ public class APISampleTest extends AbstractTest {
 
     @Test(description = "JIRA#DEMO-0004")
     @MethodOwner(owner = "qpsdemo")
-    @QTestTestCase(id = "11,12")
+    @QTestCases(id = "11,12")
     @TestPriority(Priority.P1)
     public void testDeleteUsers() {
         DeleteUserMethod deleteUserMethod = new DeleteUserMethod();

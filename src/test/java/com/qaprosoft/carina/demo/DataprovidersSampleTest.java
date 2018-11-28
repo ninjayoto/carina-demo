@@ -17,6 +17,7 @@ package com.qaprosoft.carina.demo;
 
 import com.qaprosoft.carina.core.foundation.AbstractTest;
 import com.qaprosoft.carina.core.foundation.dataprovider.annotations.XlsDataSourceParameters;
+import com.qaprosoft.carina.core.foundation.report.qtest.QTestCases;
 import com.qaprosoft.carina.core.foundation.report.testrail.TestRailCases;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.qaprosoft.carina.core.foundation.utils.tag.Priority;
@@ -44,7 +45,7 @@ public class DataprovidersSampleTest extends AbstractTest {
     @Test(dataProvider = "DataProvider", description = "JIRA#DEMO-0005")
     @MethodOwner(owner = "qpsdemo")
     @TestRailCases(testCasesId = "1")
-    @XlsDataSourceParameters(path = "xls/demo.xlsx", sheet = "Calculator", dsUid = "TUID", dsArgs = "a,b,c", testRailColumn = "a")
+    @XlsDataSourceParameters(path = "xls/demo.xlsx", sheet = "Calculator", dsUid = "TUID", dsArgs = "a,b,c", qTestColumn = "b")
     public void testSumOperation(String a, String b, String c) {
         int actual = Integer.valueOf(a) + Integer.valueOf(b);
         int expected = Integer.valueOf(c);
@@ -61,9 +62,10 @@ public class DataprovidersSampleTest extends AbstractTest {
     @MethodOwner(owner = "qpsdemo")
     @TestPriority(Priority.P3)
     @TestRailCases(testCasesId = "44")
+    @QTestCases(id = "300,400")
     @TestTag(name = "area multi", value = "data provider multiply")
     public void testMuliplyOperation(String TUID, String testRailColumn, int a, int b, int c) {
-        setTestRailCase(testRailColumn.split(","));
+        setCases(testRailColumn.split(","));
         int actual = a * b;
         int expected = c;
         Assert.assertEquals(actual, expected, "Invalid sum result!");
