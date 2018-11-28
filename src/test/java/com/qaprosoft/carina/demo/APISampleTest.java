@@ -16,6 +16,7 @@
 package com.qaprosoft.carina.demo;
 
 import org.skyscreamer.jsonassert.JSONCompareMode;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.qaprosoft.apitools.validation.JsonCompareKeywords;
@@ -67,6 +68,7 @@ public class APISampleTest extends AbstractTest {
         getUsersMethods.callAPI();
         getUsersMethods.validateResponse(JSONCompareMode.STRICT, JsonCompareKeywords.ARRAY_CONTAINS.getKey());
         getUsersMethods.validateResponseAgainstJSONSchema("api/users/_get/rs.schema");
+        Assert.fail("explicit failure");
     }
 
     @Test(description = "JIRA#DEMO-0004")
