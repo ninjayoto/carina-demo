@@ -19,12 +19,10 @@
 	<parameter name="TestRailSuiteId" value="1" />
 	<parameter name="TestRailProjectId" value="1" />
 	
-	<parameter name="qTestProjectId" value="2" />
-	<parameter name="qTestCycleId" value="2" />
+	<parameter name="qTestProjectId" value="1" />
 
 
 	<listeners>
-		<listener class-name="com.qaprosoft.carina.core.foundation.retry.AnnotationTransformer"/>
 		<listener class-name="com.qaprosoft.zafira.listener.ZafiraListener"/>
 	</listeners>
 

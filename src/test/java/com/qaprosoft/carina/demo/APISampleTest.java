@@ -38,11 +38,7 @@ public class APISampleTest extends AbstractTest {
 
     @Test(description = "JIRA#DEMO-0001")
     @MethodOwner(owner = "qpsdemo")
-    @TestRailCases(testCasesId = "1")
-    @TestRailCases(testCasesId = "10", platform = "API")
     @QTestTestCase(id = "1")
-    @QTestTestCase(id = "100", platform = "Android")
-    @QTestTestCase(id = "200", platform = "API")
     public void testCreateUser() throws Exception {
         setTestRailCase("4555,54545");
         PostUserMethod api = new PostUserMethod();
@@ -53,8 +49,7 @@ public class APISampleTest extends AbstractTest {
 
     @Test(description = "JIRA#DEMO-0002")
     @MethodOwner(owner = "qpsdemo")
-    @TestRailCases(testCasesId = "2")
-    @QTestTestCase(id = "2")
+    @QTestTestCase(id = "2,5,7")
     public void testCreateUserMissingSomeFields() throws Exception {
         PostUserMethod api = new PostUserMethod();
         api.getProperties().remove("name");
@@ -66,10 +61,7 @@ public class APISampleTest extends AbstractTest {
 
     @Test(description = "JIRA#DEMO-0003")
     @MethodOwner(owner = "qpsdemo")
-    @TestRailCases(testCasesId = "3")
-    @TestRailCases(testCasesId = "4")
-    @QTestTestCase(id = "3")
-    @QTestTestCase(id = "4")
+    @QTestTestCase(id = "10")
     public void testGetUsers() {
         GetUserMethods getUsersMethods = new GetUserMethods();
         getUsersMethods.expectResponseStatus(HttpResponseStatusType.OK_200);
@@ -80,12 +72,7 @@ public class APISampleTest extends AbstractTest {
 
     @Test(description = "JIRA#DEMO-0004")
     @MethodOwner(owner = "qpsdemo")
-    @TestRailCases(testCasesId = "5,9,65656")
-    @TestRailCases(testCasesId = "6")
-    @TestRailCases(testCasesId = "7")
-    @QTestTestCase(id = "5")
-    @QTestTestCase(id = "6")
-    @QTestTestCase(id = "7")
+    @QTestTestCase(id = "11,12")
     @TestPriority(Priority.P1)
     public void testDeleteUsers() {
         DeleteUserMethod deleteUserMethod = new DeleteUserMethod();
