@@ -27,6 +27,7 @@ import com.qaprosoft.carina.core.foundation.utils.tag.TestPriority;
 import com.qaprosoft.carina.demo.api.DeleteUserMethod;
 import com.qaprosoft.carina.demo.api.GetUserMethods;
 import com.qaprosoft.carina.demo.api.PostUserMethod;
+import org.testng.Assert;
 
 /**
  * This sample shows how create REST API tests.
@@ -39,6 +40,7 @@ public class APISampleTest extends AbstractTest {
     @MethodOwner(owner = "qpsdemo")
     public void testCreateUser() throws Exception {
         setCases("4555,54545");
+        Assert.fail("Test Fail");
         PostUserMethod api = new PostUserMethod();
         api.expectResponseStatus(HttpResponseStatusType.CREATED_201);
         api.callAPI();
